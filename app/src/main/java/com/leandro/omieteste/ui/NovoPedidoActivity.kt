@@ -1,10 +1,7 @@
 package com.leandro.omieteste.ui
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.leandro.omieteste.R
 import com.leandro.omieteste.databinding.ActivityNovoPedidoBinding
