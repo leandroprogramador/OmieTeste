@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.OmieTeste" parent="Theme.MaterialComponents.Light.NoActionBar" >
+        <item name="colorPrimary">@color/app_primary_dark</item>
+        <item name="colorPrimaryVariant">@color/app_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/app_secondary</item>
+        <item name="android:statusBarColor">@color/app_primary_dark</item>
+    </style>
+
+    <style name="Theme.OmieTeste.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+</resources>

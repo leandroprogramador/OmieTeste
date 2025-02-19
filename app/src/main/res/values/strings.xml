@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">OmieTeste</string>
+    <string name="total_de_vendas">Total de vendas:</string>
+    <string name="fazer_uma_venda">Fazer uma venda</string>
+    <string name="meus_pedidos">Meus pedidos</string>
+    <string name="numero_do_pedido">Número do pedido:</string>
+    <string name="cliente">Cliente:</string>
+    <string name="digite_nome_cliente">Digite o nome do cliente</string>
+    <string name="nova_venda">Nova venda</string>
+    <string name="produto">Produto:</string>
+    <string name="digite_nome_produto">Digite o nome do produto</string>
+    <string name="quantidade">Quantidade:</string>
+    <string name="quantidade_hint">0</string>
+    <string name="valor_unitario">Valor unitário (R$):</string>
+    <string name="valor_total_produto">"Valor total do produto:"</string>
+    <string name="incluir">Incluir</string>
+    <string name="incluir_produto">Incluir produto</string>
+    <string name="label_zero_reais">R$ 0,00</string>
+    <string name="quantidade_total_itens">Qtd. Total itens:</string>
+    <string name="valor_total_pedido">Valor total do pedido:</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="salvar">Salvar</string>
+</resources>

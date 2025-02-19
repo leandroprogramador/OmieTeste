@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="incluirProduto"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="cancelar"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="salvar"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.OmieTeste.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:text="@string/nova_venda"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/constraintAcoes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mainContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/txtNumeroPedidoLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/numero_do_pedido"
+                    android:textAppearance="@style/bold"
+                    android:textSize="@dimen/size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtNumeroPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:textAppearance="@style/regular"
+                    android:textSize="@dimen/size_16sp"
+                    app:layout_constraintStart_toEndOf="@id/txtNumeroPedidoLabel"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:text="001" />
+
+                <View
+                    android:id="@+id/dividerCliente"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@color/app_divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtNumeroPedido" />
+
+
+                <TextView
+                    android:id="@+id/txtNomeLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:text="@string/cliente"
+                    android:textAppearance="@style/bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dividerCliente" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilNome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    app:errorTextAppearance="@style/error"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNomeLabel">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editNome"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_edittext"
+                        android:focusable="true"
+                        android:hint="@string/digite_nome_cliente"
+                        android:importantForAccessibility="yes"
+                        android:padding="10dp"
+                        android:textAppearance="@style/regular" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/dividerProduto"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@color/app_divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilNome" />
+
+
+                <TextView
+                    android:id="@+id/txtProdutoLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:text="@string/produto"
+                    android:textAppearance="@style/bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dividerProduto" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilProduto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:errorTextAppearance="@style/error"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtProdutoLabel">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editProduto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_edittext"
+                        android:focusable="true"
+                        android:hint="@string/digite_nome_produto"
+                        android:importantForAccessibility="yes"
+                        android:padding="10dp"
+                        android:textAppearance="@style/regular" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtQuantidadeLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/quantidade"
+                    android:textAppearance="@style/bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tilQuantidade"
+                    app:layout_constraintStart_toStartOf="@+id/tilQuantidade"
+                    app:layout_constraintTop_toBottomOf="@+id/tilProduto" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilQuantidade"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/tilValorUnitario"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:errorTextAppearance="@style/error"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQuantidadeLabel">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editQuantidade"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_edittext"
+                        android:focusable="true"
+                        android:hint="@string/quantidade_hint"
+                        android:importantForAccessibility="yes"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:textAppearance="@style/regular" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtValorUnitarioLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/valor_unitario"
+                    android:textAppearance="@style/bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tilValorUnitario"
+                    app:layout_constraintStart_toStartOf="@+id/tilValorUnitario"
+                    app:layout_constraintTop_toBottomOf="@+id/tilProduto" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilValorUnitario"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:errorTextAppearance="@style/error"
+                    app:layout_constraintStart_toEndOf="@+id/tilQuantidade"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQuantidadeLabel">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editValorUnitario"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_edittext"
+                        android:focusable="true"
+                        android:hint="@string/label_zero_reais"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberSigned"
+                        android:padding="10dp"
+                        android:textAppearance="@style/regular" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtValorTotalProdutoLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/valor_total_produto"
+                    android:textAppearance="@style/bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilValorUnitario" />
+
+                <TextView
+                    android:id="@+id/txtValorTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:text="@string/label_zero_reais"
+                    android:textAppearance="@style/regular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtValorTotalProdutoLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tilValorUnitario" />
+
+                <Button
+                    android:id="@+id/btnIncluirProduto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:onClick="@{incluirProduto}"
+                    android:text="@string/incluir_produto"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtValorTotal" />
+
+                <TextView
+                    android:id="@+id/txtQuantidadeItensLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:text="@string/quantidade_total_itens"
+                    android:textAppearance="@style/bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnIncluirProduto" />
+
+                <TextView
+                    android:id="@+id/txtQuantidadeItens"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:textAppearance="@style/regular"
+                    app:layout_constraintStart_toEndOf="@+id/txtQuantidadeItensLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/btnIncluirProduto"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/txtValorTotalPedidoLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:text="@string/valor_total_pedido"
+                    android:textAppearance="@style/bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQuantidadeItensLabel" />
+
+                <TextView
+                    android:id="@+id/txtValorTotalPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:textAppearance="@style/regular"
+                    app:layout_constraintStart_toEndOf="@+id/txtValorTotalPedidoLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQuantidadeItensLabel"
+                    tools:text="R$ 199,99" />
+
+                <View
+                    android:id="@+id/dividerPedidos"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@color/app_divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtValorTotalPedido" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerProdutos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dividerPedidos"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_adicionar_produto" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintAcoes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16dp"
+                android:onClick="@{cancelar}"
+                android:text="@string/cancelar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnSalvar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16dp"
+                android:onClick="@{salvar}"
+                android:text="@string/salvar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnCancelar"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

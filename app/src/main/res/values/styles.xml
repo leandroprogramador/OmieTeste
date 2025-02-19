@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="regular">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/size_16sp</item>
+    </style>
+
+    <style name="bold" parent="regular">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="error">
+        <item name="android:textColor">@color/error</item>
+    </style>
+
+
+</resources>
