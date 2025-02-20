@@ -20,4 +20,5 @@
     <string name="valor_total_pedido">Valor total do pedido:</string>
     <string name="cancelar">Cancelar</string>
     <string name="salvar">Salvar</string>
+    <string name="erro_nome_cliente_vazio">Preencha o nome do cliente!</string>
 </resources>

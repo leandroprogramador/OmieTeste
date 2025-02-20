@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro.omieteste.R
 import com.leandro.omieteste.databinding.ActivityNovoPedidoBinding
+import com.leandro.omieteste.ui.view.CurrencyTextWatcher
 import com.leandro.omieteste.ui.view.HintedTextWatcher
 
 class NovoPedidoActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class NovoPedidoActivity : AppCompatActivity() {
         setToolbar()
         binding.setCancelar { finish() }
         binding.setSalvar { verificaItens() }
+        binding.setIncluirProduto { verificaCampos() }
         setEditTextWatchers()
     }
 
@@ -21,14 +23,20 @@ class NovoPedidoActivity : AppCompatActivity() {
 
     }
 
-    private fun verificaCampos() {
-
+    private fun verificaCampos() : Boolean {
+        var camposValidos = true
+        if(binding.editNome.text.toString().isEmpty()) {
+            binding.tilNome.isErrorEnabled = true
+            binding.tilNome.error = getString(R.string.erro_nome_cliente_vazio)
+        }
+        return camposValidos
     }
 
     private fun setEditTextWatchers() {
         binding.editNome.addTextChangedListener(HintedTextWatcher(binding.editNome, binding.tilNome, getString(R.string.digite_nome_cliente)).addWatch())
         binding.editProduto.addTextChangedListener(HintedTextWatcher(binding.editProduto, binding.tilProduto, getString(R.string.digite_nome_produto)).addWatch())
         binding.editQuantidade.addTextChangedListener(HintedTextWatcher(binding.editQuantidade, binding.tilQuantidade, getString(R.string.quantidade_hint)).addWatch())
+        binding.editValorUnitario.addTextChangedListener(CurrencyTextWatcher(binding.editValorUnitario))
         binding.editValorUnitario.addTextChangedListener(HintedTextWatcher(binding.editValorUnitario, binding.tilValorUnitario, getString(R.string.label_zero_reais)).addWatch())
 
     }

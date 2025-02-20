@@ -6,4 +6,5 @@ data class Produto(val nomeProduto : String, val quantidade : Int, val valorUnit
     fun calcValorTotal() : Double = valorUnitario * quantidade
 
     fun formatValorUnitario() : String = valorUnitario.toString()
+    fun formatValorTotal() : String = calcValorTotal().toString()
 }
