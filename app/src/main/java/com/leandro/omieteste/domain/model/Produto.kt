@@ -12,7 +12,7 @@ data class Produto(
     @ColumnInfo(name = "nome_produto") val nomeProduto: String,
     @ColumnInfo(name = "quantidade") val quantidade: Int,
     @ColumnInfo(name = "valor_unitario") val valorUnitario: Double,
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "produto_id") val pedidoId: Long = 0
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "produto_id") val produtoId: Long = 0
 ) : BaseAdapter.ListAdapterItem {
     fun calcValorTotal() : Double = quantidade * valorUnitario
     fun formatValorTotal() : String = calcValorTotal().formatarMoeda()
