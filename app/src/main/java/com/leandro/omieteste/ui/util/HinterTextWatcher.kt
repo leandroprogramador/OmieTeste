@@ -7,7 +7,7 @@ import com.google.android.material.textfield.TextInputLayout
 
 class HintedTextWatcher(private val editText: EditText, private val inputLayout: TextInputLayout, private val hint : String ) {
 
-    fun addWatch(callback : () -> Unit) : TextWatcher {
+    fun addWatch(callback : (String) -> Unit) : TextWatcher {
         return object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -21,7 +21,7 @@ class HintedTextWatcher(private val editText: EditText, private val inputLayout:
                     editText.hint = hint
 
                 }
-                callback()
+                callback(p0.toString())
             }
 
             override fun afterTextChanged(p0: Editable?) {

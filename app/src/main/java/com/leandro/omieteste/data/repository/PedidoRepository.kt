@@ -1,7 +1,5 @@
 package com.leandro.omieteste.data.repository
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import com.leandro.omieteste.data.local.PedidoDao
 import com.leandro.omieteste.domain.model.Pedido
 import com.leandro.omieteste.domain.model.PedidoComProdutos
@@ -26,7 +24,9 @@ class PedidoRepository @Inject constructor(private val pedidoDao: PedidoDao){
         pedidoDao.deletarPedidoComProdutos(pedidoId)
     }
 
-    fun buscarPedidoComProdutos(pedidoId : Long) : LiveData<PedidoComProdutos> = pedidoDao.buscarPedidosComProdutos(pedidoId)
+    suspend fun buscarPedidoComProdutos(pedidoId : Long) : PedidoComProdutos? {
+        return pedidoDao.buscarPedidosComProdutos(pedidoId)
+    }
 
     suspend fun inserirPedidoComProdutos(pedido : Pedido, produtos : List<Produto>) {
         val pedidoId = pedidoDao.inserirPedido(pedido)

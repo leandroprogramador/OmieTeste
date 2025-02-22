@@ -13,8 +13,12 @@ data class Pedido(
     @ColumnInfo(name = "nome_cliente") val nomeCliente: String,
     @ColumnInfo(name = "valor_total") val valorTotal: Double,
     @ColumnInfo(name = "data_pedido") val dataPedido: Long = Calendar.getInstance().timeInMillis,
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "pedido_id") val id: Long = 0
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = PEDIDO_ID) val id: Long = 0
 ) {
+
+    companion object {
+        const val PEDIDO_ID = "pedido_id"
+    }
     fun formatarData() : String = DateUtil.formatarTImeStampParaData(dataPedido)
     fun formatarValor() : String = valorTotal.formatarMoeda()
     fun formatarID() : String = String.format(Locale.getDefault(), "%04d", id)

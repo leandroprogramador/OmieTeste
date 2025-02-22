@@ -1,7 +1,6 @@
 package com.leandro.omieteste.ui.util
 
 import android.content.Context
-import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 
 object AlertUtil {
@@ -10,10 +9,10 @@ object AlertUtil {
         val alert = AlertDialog.Builder(context)
             .setTitle(titulo)
             .setMessage(mensagem)
-            .setPositiveButton(btnText, DialogInterface.OnClickListener { dialogInterface, i ->
+            .setPositiveButton(btnText) { dialogInterface, i ->
                 dialogInterface.dismiss()
                 btnAction()
-            }).create()
+            }.create()
         alert.show()
     }
 
@@ -21,14 +20,14 @@ object AlertUtil {
         val alert = AlertDialog.Builder(context)
             .setTitle(titulo)
             .setMessage(mensagem)
-            .setPositiveButton(btnPositiveText, DialogInterface.OnClickListener { dialogInterface, i ->
+            .setPositiveButton(btnPositiveText) { dialogInterface, i ->
                 dialogInterface.dismiss()
                 btnPositiveAction()
-            })
-            .setNegativeButton(btnNegativeText, DialogInterface.OnClickListener { dialogInterface, i ->
+            }
+            .setNegativeButton(btnNegativeText) { dialogInterface, i ->
                 dialogInterface.dismiss()
                 btnNegativeAction()
-            })
+            }
             .create()
         alert.show()
     }

@@ -2,8 +2,6 @@ package com.leandro.omieteste.ui.pedido
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -14,10 +12,10 @@ import com.leandro.omieteste.databinding.ActivityNovoPedidoBinding
 import com.leandro.omieteste.domain.model.Pedido
 import com.leandro.omieteste.domain.model.Produto
 import com.leandro.omieteste.ui.produto.ProdutoAdapter
-import com.leandro.omieteste.ui.util.extensions.formatarMoeda
 import com.leandro.omieteste.ui.util.AlertUtil
 import com.leandro.omieteste.ui.util.CurrencyTextWatcher
 import com.leandro.omieteste.ui.util.HintedTextWatcher
+import com.leandro.omieteste.ui.util.extensions.formatarMoeda
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -139,39 +137,18 @@ class NovoPedidoActivity : AppCompatActivity(), ProdutoAdapter.OnDeleteClick {
     private fun setEditTextWatchers() {
         binding.editNome.addTextChangedListener(HintedTextWatcher(binding.editNome, binding.tilNome, getString(R.string.digite_nome_cliente)).addWatch(){})
         binding.editProduto.addTextChangedListener(HintedTextWatcher(binding.editProduto, binding.tilProduto, getString(R.string.digite_nome_produto)).addWatch(){})
-        binding.editQuantidade.addTextChangedListener(HintedTextWatcher(binding.editQuantidade, binding.tilQuantidade, "").addWatch(){})
-        binding.editQuantidade.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+        binding.editQuantidade.addTextChangedListener(HintedTextWatcher(binding.editQuantidade, binding.tilQuantidade, "").addWatch(){ text ->
+            if(text.isNotEmpty()) {
+                calcValorTotalProduto()
             }
-
-            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(!text.isNullOrEmpty()) {
-                    calcValorTotalProduto()
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-
         })
         binding.editValorUnitario.addTextChangedListener(CurrencyTextWatcher(binding.editValorUnitario))
-        binding.editValorUnitario.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        binding.editValorUnitario.addTextChangedListener(HintedTextWatcher(binding.editValorUnitario, binding.tilValorUnitario, "").addWatch { text ->
+            if(text.isNotEmpty()) {
+                calcValorTotalProduto()
             }
-
-            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(!text.isNullOrEmpty()) {
-                    calcValorTotalProduto()
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-
         })
+
 
     }
 

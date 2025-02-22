@@ -28,6 +28,9 @@ class PedidoViewModel @Inject constructor(private val repository: PedidoReposito
 
     private val _deletarPedido = MutableLiveData<Boolean>()
     val deletarProduto : LiveData<Boolean> get() = _deletarPedido
+
+    private val _pedidoComProdutos = MutableLiveData<PedidoComProdutos>()
+    val pedidoComProdutos: LiveData<PedidoComProdutos> get() = _pedidoComProdutos
     
 
     fun carregarProximoId() {
@@ -44,8 +47,11 @@ class PedidoViewModel @Inject constructor(private val repository: PedidoReposito
             _somaValoresTotais.value = soma
         }
     }
-    fun buscarPedidosComProdutos(pedidoId: Long): LiveData<PedidoComProdutos> {
-        return repository.buscarPedidoComProdutos(pedidoId)
+    fun buscarPedidosComProdutos(pedidoId: Long) {
+        viewModelScope.launch {
+            _pedidoComProdutos.value = repository.buscarPedidoComProdutos(pedidoId)
+        }
+
     }
 
     fun inserirPedidoComProdutos(pedido: Pedido, produtos: List<Produto>) {

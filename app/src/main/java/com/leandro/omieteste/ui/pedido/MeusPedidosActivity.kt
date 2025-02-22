@@ -1,16 +1,15 @@
 package com.leandro.omieteste.ui.pedido
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.leandro.omieteste.R
 import com.leandro.omieteste.databinding.ActivityMeusPedidosBinding
+import com.leandro.omieteste.domain.model.Pedido
 import com.leandro.omieteste.domain.model.PedidoQuantidadeProdutos
 import com.leandro.omieteste.ui.util.AlertUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,8 +26,6 @@ class MeusPedidosActivity : AppCompatActivity(), PedidoQuantidadeAdapter.OnPedid
         setToolbar()
         getPedidos()
         addObservable()
-
-
     }
 
     private fun addObservable() {
@@ -57,9 +54,6 @@ class MeusPedidosActivity : AppCompatActivity(), PedidoQuantidadeAdapter.OnPedid
         if(itemCount == 0) {
             nenhumPedido()
         }
-        
-        
-        
     }
 
     private fun showAlertaErrorDeletar() {
@@ -107,7 +101,9 @@ class MeusPedidosActivity : AppCompatActivity(), PedidoQuantidadeAdapter.OnPedid
     }
 
     override fun onClick(pedidoQuantidadeProdutos: PedidoQuantidadeProdutos) {
-
+        startActivity(Intent(this, PedidoDetalhesActivity::class.java).also {
+            it.putExtra(Pedido.PEDIDO_ID, pedidoQuantidadeProdutos.pedido.id)
+        })
     }
 
     override fun onDelete(pedidoQuantidadeProdutos: PedidoQuantidadeProdutos) {

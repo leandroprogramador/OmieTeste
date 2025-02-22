@@ -40,4 +40,6 @@
     <string name="nao">nao</string>
     <string name="erro">Erro</string>
     <string name="erro_deletar">Não foi possível deletar o pedido. Tente novamente!</string>
+    <string name="produtos">Produtos</string>
+    <string name="detalhe_pedido">Detalhe do pedido</string>
 </resources>
