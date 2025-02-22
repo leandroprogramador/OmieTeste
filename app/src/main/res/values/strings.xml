@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OmieTeste</string>
+    <string name="app_name">Minha Lojinha</string>
     <string name="total_de_vendas">Total de vendas:</string>
     <string name="fazer_uma_venda">Fazer uma venda</string>
     <string name="meus_pedidos">Meus pedidos</string>
@@ -11,7 +11,7 @@
     <string name="digite_nome_produto">Digite o nome do produto</string>
     <string name="quantidade">Quantidade:</string>
     <string name="quantidade_hint">0</string>
-    <string name="valor_unitario">Valor unitário (R$):</string>
+    <string name="valor_unitario">Valor unitário:</string>
     <string name="valor_total_produto">"Valor total do produto:"</string>
     <string name="incluir">Incluir</string>
     <string name="incluir_produto">Incluir produto</string>
@@ -20,5 +20,24 @@
     <string name="valor_total_pedido">Valor total do pedido:</string>
     <string name="cancelar">Cancelar</string>
     <string name="salvar">Salvar</string>
-    <string name="erro_nome_cliente_vazio">Preencha o nome do cliente!</string>
+    <string name="erro_nome_cliente_vazio">Preencha o nome do cliente.</string>
+    <string name="erro_nome_produto_vazio">Preencha o nome do produto.</string>
+    <string name="erro_quantidade_produto_invalida">Preencha a quantidade do produto.</string>
+    <string name="erro_valor_produto_invalida">Preencha o valor unitário corretamente.</string>
+    <string name="aviso">Aviso</string>
+    <string name="preencha_campos_corretamente">Preencha os campos corretamente</string>
+    <string name="fechar">Fechar</string>
+    <string name="add_produtos_erro">Adicione os produtos antes de salvar.</string>
+    <string name="pedido_salvo_sucesso">Pedido salvo com sucesso</string>
+    <string name="total_de_pedidos">Total de pedidos:</string>
+    <string name="pedido">Pedido:</string>
+    <string name="data_pedido">Data:</string>
+    <string name="quantidade_itens">Quantidade de itens:</string>
+    <string name="valor_total">Valor total:</string>
+    <string name="voce_nao_possui_produto">Você ainda não possui nenhum produto</string>
+    <string name="deseja_excluir_pedido">Deseja realmente remover esse pedido?\n\nEssa ação não poderá ser desfeita!</string>
+    <string name="sim">Sim</string>
+    <string name="nao">nao</string>
+    <string name="erro">Erro</string>
+    <string name="erro_deletar">Não foi possível deletar o pedido. Tente novamente!</string>
 </resources>

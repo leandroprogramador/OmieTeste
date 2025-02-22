@@ -5,7 +5,7 @@
     <data>
         <variable
             name="produto"
-            type="com.leandro.omieteste.model.Produto" />
+            type="com.leandro.omieteste.domain.model.Produto" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -84,7 +84,7 @@
         android:id="@+id/txtQuantidade"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@{produto.quantidade}"
+        android:text="@{produto.showQuantidade()}"
         android:textAppearance="@style/regular"
         android:layout_marginStart="@dimen/margin_8dp"
         app:layout_constraintBottom_toBottomOf="@+id/txtQuantidadeLabel"

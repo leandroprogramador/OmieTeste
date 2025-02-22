@@ -5,16 +5,9 @@
 
     <data>
         <variable
-            name="totalVendas"
+            name="totalPedidos"
             type="java.lang.String" />
 
-        <variable
-            name="novaVendaClick"
-            type="android.view.View.OnClickListener" />
-
-        <variable
-            name="meusPedidosClick"
-            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,14 +32,15 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainContent"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="gone"
-            android:id="@+id/mainContent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/abl_toolbar">
+            app:layout_constraintTop_toBottomOf="@+id/abl_toolbar"
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/txtTotalLabel"
@@ -54,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16dp"
                 android:layout_marginTop="@dimen/margin_16dp"
-                android:text="@string/total_de_vendas"
+                android:text="@string/total_de_pedidos"
                 android:textAppearance="@style/bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -66,38 +60,37 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:layout_marginEnd="@dimen/margin_16dp"
-                android:text="@{totalVendas}"
+                android:text="@{totalPedidos}"
                 android:textAppearance="@style/regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/txtTotalLabel"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="R$ 6.9854,66" />
+                tools:text="3" />
 
-            <Button
-                android:id="@+id/btnNovaVenda"
-                android:layout_width="@dimen/size_200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_16dp"
-                android:layout_marginTop="32dp"
-                android:onClick="@{novaVendaClick}"
-                android:layout_marginEnd="@dimen/margin_16dp"
-                android:text="@string/fazer_uma_venda"
-                app:layout_constraintEnd_toEndOf="parent"
+            <TextView
+                android:id="@+id/txtNenhumPedido"
+                android:layout_width="0dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTotal" />
-
-            <Button
-                android:id="@+id/btnMeusPedidos"
-                android:layout_width="@dimen/size_200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTotalLabel"
                 android:layout_marginTop="@dimen/margin_8dp"
-                android:layout_marginEnd="@dimen/margin_16dp"
-                android:text="@string/meus_pedidos"
-                android:onClick="@{meusPedidosClick}"
+                android:layout_marginHorizontal="@dimen/margin_16dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/regular"
+                android:text="@string/voce_nao_possui_produto" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerPedidos"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                tools:listitem="@layout/item_pedidos"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnNovaVenda" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNenhumPedido" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ProgressBar

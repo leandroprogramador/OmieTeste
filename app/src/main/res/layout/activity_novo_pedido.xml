@@ -109,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16dp"
                     android:layout_marginTop="@dimen/margin_8dp"
+                    android:hint=""
                     app:errorTextAppearance="@style/error"
                     android:layout_marginEnd="@dimen/margin_16dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -159,6 +160,8 @@
                     android:layout_marginStart="@dimen/margin_16dp"
                     android:layout_marginTop="@dimen/margin_8dp"
                     android:layout_marginEnd="@dimen/margin_16dp"
+                    android:hint=""
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:errorTextAppearance="@style/error"
                     app:layout_constraintStart_toStartOf="parent"
@@ -198,6 +201,8 @@
                     app:layout_constraintEnd_toStartOf="@+id/tilValorUnitario"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:errorTextAppearance="@style/error"
+                    android:paddingBottom="8dp"
+                    android:hint=""
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtQuantidadeLabel">
 
@@ -208,7 +213,8 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/background_edittext"
                         android:focusable="true"
-                        android:hint="@string/quantidade_hint"
+                        android:text="0"
+                        android:maxLength="5"
                         android:importantForAccessibility="yes"
                         android:inputType="number"
                         android:padding="10dp"
@@ -233,6 +239,7 @@
                     android:layout_marginStart="@dimen/margin_16dp"
                     android:layout_marginTop="@dimen/margin_8dp"
                     android:layout_marginEnd="@dimen/margin_16dp"
+                    android:paddingBottom="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:errorTextAppearance="@style/error"
@@ -246,10 +253,11 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/background_edittext"
                         android:focusable="true"
-                        android:hint="@string/label_zero_reais"
+                        android:text="@string/label_zero_reais"
                         android:importantForAccessibility="yes"
                         android:inputType="numberSigned"
                         android:padding="10dp"
+                        android:maxLength="15"
                         android:textAppearance="@style/regular" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -310,7 +318,7 @@
                     android:textAppearance="@style/regular"
                     app:layout_constraintStart_toEndOf="@+id/txtQuantidadeItensLabel"
                     app:layout_constraintTop_toBottomOf="@+id/btnIncluirProduto"
-                    tools:text="0" />
+                    android:text="0" />
 
                 <TextView
                     android:id="@+id/txtValorTotalPedidoLabel"
@@ -332,7 +340,7 @@
                     android:textAppearance="@style/regular"
                     app:layout_constraintStart_toEndOf="@+id/txtValorTotalPedidoLabel"
                     app:layout_constraintTop_toBottomOf="@+id/txtQuantidadeItensLabel"
-                    tools:text="R$ 199,99" />
+                    android:text="R$ 0,00" />
 
                 <View
                     android:id="@+id/dividerPedidos"
@@ -348,7 +356,7 @@
                     android:id="@+id/recyclerProdutos"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
                     android:nestedScrollingEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

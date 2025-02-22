@@ -1,14 +1,19 @@
-package com.leandro.omieteste.ui.adapter
+package com.leandro.omieteste.ui.produto
 
 import com.leandro.omieteste.R
 import com.leandro.omieteste.databinding.ItemAdicionarProdutoBinding
-import com.leandro.omieteste.model.Produto
+import com.leandro.omieteste.domain.model.Produto
+import com.leandro.omieteste.ui.util.BaseAdapter
 
-class ProdutoAdapter(val produtos : ArrayList<Produto>, val onDeleteClick: OnDeleteClick) : BaseAdapter<ItemAdicionarProdutoBinding, Produto>(produtos) {
+class ProdutoAdapter(private val produtos : ArrayList<Produto>, val onDeleteClick: OnDeleteClick) : BaseAdapter<ItemAdicionarProdutoBinding, Produto>(produtos) {
 
     interface OnDeleteClick{
         fun onClick(produto: Produto)
     }
+
+    fun getProdutos() = produtos
+
+    fun getCount() = produtos.size
 
     override val layoutId: Int
         get() = R.layout.item_adicionar_produto

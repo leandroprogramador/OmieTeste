@@ -1,4 +1,4 @@
-package com.leandro.omieteste.ui.adapter
+package com.leandro.omieteste.ui.util
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -20,8 +20,8 @@ abstract class BaseAdapter<BINDING : ViewDataBinding, T : BaseAdapter.ListAdapte
     }
 
     fun remove(item: T) {
-        this.dataset.remove(item)
         notifyItemRemoved(dataset.indexOf(item))
+        this.dataset.remove(item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<BINDING> {

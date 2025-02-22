@@ -1,4 +1,4 @@
-package com.leandro.omieteste.ui.view
+package com.leandro.omieteste.ui.util
 
 import android.text.Editable
 import android.text.TextWatcher

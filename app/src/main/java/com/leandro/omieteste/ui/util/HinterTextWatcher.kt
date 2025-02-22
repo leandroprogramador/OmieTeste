@@ -1,13 +1,13 @@
-package com.leandro.omieteste.ui.view
+package com.leandro.omieteste.ui.util
 
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputLayout
 
-class HintedTextWatcher(val editText: EditText, val inputLayout: TextInputLayout, val hint : String) {
+class HintedTextWatcher(private val editText: EditText, private val inputLayout: TextInputLayout, private val hint : String ) {
 
-    fun addWatch() : TextWatcher {
+    fun addWatch(callback : () -> Unit) : TextWatcher {
         return object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -19,9 +19,9 @@ class HintedTextWatcher(val editText: EditText, val inputLayout: TextInputLayout
                     inputLayout.isErrorEnabled = false
                 } else {
                     editText.hint = hint
-                    inputLayout.hint = hint
-                }
 
+                }
+                callback()
             }
 
             override fun afterTextChanged(p0: Editable?) {
